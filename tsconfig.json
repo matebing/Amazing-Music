@@ -18,7 +18,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    //项目里的路径基于此baseUrl，如src，.表示当前（tsconfig.json）目录，即项目根目录
+    "baseUrl": ".",
+    "paths": {
+      //@下面的所有文件代表的是src下的所有文件，@/App，告诉ts相当于找src/App，
+      //告诉ts @对于src
+      "@/*": [
+        "src/*"
+      ]
+
+    }
   },
   "include": [
     "src"
