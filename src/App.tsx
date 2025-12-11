@@ -10,6 +10,7 @@ function App() {
         <Link to="/mine"> 我的音乐</Link>
         <Link to="/focus"> 关注</Link>
         <Link to="/download"> 下载客户端</Link>
+        <Link to="/demo">示例</Link>
       </div>
       <Suspense fallback="">
         <div className="main">{useRoutes(routes)}</div>

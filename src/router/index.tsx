@@ -20,6 +20,7 @@ const Album = React.lazy(() => import('@/views/discover/c-views/album'))
 const Mine = React.lazy(() => import('@/views/mine'))
 const Focus = React.lazy(() => import('@/views/focus'))
 const Download = React.lazy(() => import('@/views/download'))
+const Demo = React.lazy(() => import('@/views/demo'))
 
 const routes: RouteObject[] = [
   {
@@ -71,6 +72,10 @@ const routes: RouteObject[] = [
   {
     path: '/download',
     element: <Download />
+  },
+  {
+    path: '/demo',
+    element: <Demo />
   }
 ]
 
