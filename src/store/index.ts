@@ -15,6 +15,7 @@ const store = configureStore({
 type GetStateFnType = typeof store.getState
 //再通过ReturnType<函数类型>的方式获取函数的返回值类型
 export type RootState = ReturnType<GetStateFnType>
+export type AppDispatch = typeof store.dispatch
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 export default store
