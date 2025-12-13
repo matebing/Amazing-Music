@@ -1,17 +1,73 @@
 import styled from 'styled-components'
 export const HeaderWrapper = styled.div`
+  height: 75px;
+  background-color: #242424;
+  font-size: 14px;
+  color: #fff;
+
   .content {
-    height: 100px;
+    display: flex;
+    justify-content: space-between;
     ${(props) => (props.theme as any).mixin.wrapv1}
   }
 `
-//刚安装的三方依赖，因为没有声明过styled-components模块，会报错，ts找不到该模块
-//需要对当前模块进行类型声明
-/**
- * 三种类型声明
- *  > TypeScript内置
- *  > 第三方类型声明
- *    > 库内部已经有类型声明，如axios，axios.d.ts
- *    > 库内部没有类型声明，但是有专门的类型声明库，如react/react-dom @types/react，ts类型校验时，会自动加载这些类型声明文件
- *  > 自己写类型声明文件
- */
+
+export const HeaderLeft = styled.div`
+  display: flex;
+
+  .logo {
+    display: block;
+    width: 176px;
+    height: 70px;
+    background-position: 0 0;
+    text-indent: -9999px;
+  }
+
+  .title-list {
+    display: flex;
+    line-height: 70px;
+
+    .item {
+      position: relative;
+      a {
+        display: block;
+        padding: 0 20px;
+        color: #ccc;
+      }
+
+      &:last-of-type a {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          content: '';
+          width: 28px;
+          height: 19px;
+          background-image: url(${require('@/assets/img/sprite_01.png')});
+          background-position: -190px 0;
+          top: 20px;
+          right: -15px;
+        }
+      }
+
+      &:hover a,
+      .active {
+        color: #fff;
+        background: #000;
+        text-decoration: none;
+      }
+
+      .active .icon {
+        position: absolute;
+        display: inline-block;
+        width: 12px;
+        height: 7px;
+        bottom: -1px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-position: -226px 0;
+      }
+    }
+  }
+`
+export const HeaderRight = styled.div``

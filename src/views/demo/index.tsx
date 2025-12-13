@@ -80,7 +80,7 @@ const Template: FC<IProps> = (props) => {
       })
       .then((res: any) => {
         console.log(res)
-        setBanners(res.data)
+        setBanners(res.data || [])
       })
   }, [])
 
