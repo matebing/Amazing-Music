@@ -9,6 +9,11 @@ const store = configureStore({
   }
 })
 
+//获取getState函数调用后的结果
+const state = store.getState()
+//获取state的类型
+export type IState = typeof state
+
 //需要获取函数的返回值的类型
 //函数有它自己的类型，获取到函数的类型后可以通过ReturnType<函数类型>的方式拿到函数的返回值类型
 //先通过typeof获取getState函数的类型

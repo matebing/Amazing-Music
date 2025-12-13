@@ -49,10 +49,11 @@ const Template: FC<IProps> = (props) => {
   //   }),
   //   shallowEqual
   // )
-  const { count, message } = useAppSelector(
+  const { count, message, direction } = useAppSelector(
     (state) => ({
       count: state.counter.count,
-      message: state.counter.message
+      message: state.counter.message,
+      direction: state.counter.direction
     }),
     shallowEqual
   )
@@ -87,7 +88,7 @@ const Template: FC<IProps> = (props) => {
     <div>
       Template
       <h2>
-        当前计数：{count} 当前message：{message}
+        当前计数：{count} 当前message：{message} 当前方向：{direction}
       </h2>
       <button onClick={modifyMessage}>修改message</button>
       {banners.map((item, index) => {
