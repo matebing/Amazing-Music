@@ -1,12 +1,43 @@
-import { memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 import { shallowEqual } from 'react-redux'
 import { useAppSelector, useAppDispatch } from '@/hooks'
 import { changeMessage } from '@/store/modules/counter'
+import hyRequest from '@/service'
+import { AxiosHeaders } from 'axios'
 // import type { RootState } from './store'
 
 interface IProps {
   children?: ReactNode
+}
+
+export interface IBannerData {
+  imageUrl: string
+  targetId: number
+  adId: string
+  targetType: number
+  titleColor: string
+  typeTitle: string
+  url: string
+  exclusive: boolean
+  monitorImpress: string
+  monitorClick: string
+  monitorType: string
+  monitorImpressList: string
+  monitorClickList: string
+  monitorBlackList: string
+  extMonitor: string
+  extMonitorInfo: string
+  adSource: string
+  adLocation: string
+  adDispatchJson: string
+  encodeId: string
+  program: string
+  event: string
+  video: string
+  song: string
+  scm: string
+  bannerBizType: string
 }
 
 const Template: FC<IProps> = (props) => {
@@ -32,6 +63,25 @@ const Template: FC<IProps> = (props) => {
   function modifyMessage() {
     dispatch(changeMessage('你好，世界'))
   }
+
+  //给useState中的数据定义类型，通过泛型，这个泛型决定函数调用后返回的数据的类型
+  const [banners, setBanners] = useState<IBannerData[]>([])
+
+  //测试网络请求
+  useEffect(() => {
+    const headers = new AxiosHeaders()
+    headers.set('Content-Type', 'application/json')
+    hyRequest
+      .get({
+        url: '/api/banner',
+        headers: new AxiosHeaders()
+      })
+      .then((res: any) => {
+        console.log(res)
+        setBanners(res.data)
+      })
+  }, [])
+
   return (
     <div>
       Template
@@ -39,6 +89,9 @@ const Template: FC<IProps> = (props) => {
         当前计数：{count} 当前message：{message}
       </h2>
       <button onClick={modifyMessage}>修改message</button>
+      {banners.map((item, index) => {
+        return <div key={index}>{item.imageUrl}</div>
+      })}
     </div>
   )
 }
