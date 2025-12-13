@@ -1,20 +1,18 @@
 import React, { Suspense } from 'react'
-import { useRoutes, Link } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 import routes from './router'
+import AppHeader from './components/app-header'
+import AppFooter from './components/app-footer'
 
 function App() {
   return (
     <div className="App">
-      <div className="nav">
-        <Link to="/discover"> 发现音乐</Link>
-        <Link to="/mine"> 我的音乐</Link>
-        <Link to="/focus"> 关注</Link>
-        <Link to="/download"> 下载客户端</Link>
-        <Link to="/demo">示例</Link>
-      </div>
+      <AppHeader />
+      {/* 路由懒加载，使用suspense防止页面瞬闪 */}
       <Suspense fallback="">
         <div className="main">{useRoutes(routes)}</div>
       </Suspense>
+      <AppFooter />
     </div>
   )
 }

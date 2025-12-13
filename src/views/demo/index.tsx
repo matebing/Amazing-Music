@@ -66,7 +66,7 @@ const Template: FC<IProps> = (props) => {
     dispatch(changeMessage('你好，世界'))
   }
 
-  //给useState中的数据定义类型，通过泛型，这个泛型决定函数调用后返回的数据的类型
+  //给useState中的数据定义类型，通过泛型决定函数调用后返回的数据的类型
   const [banners, setBanners] = useState<IBannerData[]>([])
 
   //测试网络请求
