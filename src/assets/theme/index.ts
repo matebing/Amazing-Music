@@ -6,7 +6,7 @@ const theme = {
   size: {},
   mixin: {
     wrapv1: `
-      width: 1100px;
+      width: 1200px;
       margin: 0 auto;
     `
   }

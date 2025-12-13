@@ -1,18 +1,32 @@
 import { memo } from 'react'
 import type { FC, ReactNode } from 'react'
+import { NavLink } from 'react-router-dom'
+import { SearchOutlined } from '@ant-design/icons'
+import { Input } from 'antd'
 import { HeaderLeft, HeaderRight, HeaderWrapper } from './style'
 
 import headerTitles from '@/assets/data/header-titles.json'
-import { Link } from 'react-router-dom'
 
 interface IProps {
   children?: ReactNode
 }
 
 const AppHeader: FC<IProps> = (props) => {
+  //定义组件内部状态
+  //组件展示逻辑
   function showLink(item: any) {
     if (item.type === 'path') {
-      return <Link to={item.link}>{item.title}</Link>
+      return (
+        <NavLink
+          to={item.link}
+          className={({ isActive }) => {
+            return isActive ? 'active' : undefined
+          }}
+        >
+          {item.title}
+          <i className="icon sprite_01"></i>
+        </NavLink>
+      )
     } else {
       return (
         <a href={item.link} rel="noreferrer" target="_blank">
@@ -32,15 +46,26 @@ const AppHeader: FC<IProps> = (props) => {
           <div className="title-list">
             {headerTitles.map((item, index) => {
               return (
-                <div className="item" key={index}>
+                <div className="item active" key={index}>
                   {showLink(item)}
                 </div>
               )
             })}
           </div>
         </HeaderLeft>
-        <HeaderRight></HeaderRight>
+        <HeaderRight>
+          <span className="input">
+            <Input
+              className="search"
+              placeholder="音乐/视频/电台/用户"
+              prefix={<SearchOutlined />}
+            ></Input>
+          </span>
+          <span className="center">创作者中心</span>
+          <span className="login">登录</span>
+        </HeaderRight>
       </div>
+      <div className="divider"></div>
     </HeaderWrapper>
   )
 }

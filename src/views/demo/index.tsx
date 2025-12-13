@@ -8,6 +8,8 @@ import { AxiosHeaders } from 'axios'
 import ClassComponent from './ClassComponent'
 // import type { RootState } from './store'
 
+import { Button } from 'antd'
+
 interface IProps {
   children?: ReactNode
 }
@@ -95,6 +97,7 @@ const Template: FC<IProps> = (props) => {
         return <div key={index}>{item.imageUrl}</div>
       })}
       <ClassComponent name="zhangsan" />
+      <Button type="primary">确认</Button>
     </div>
   )
 }
