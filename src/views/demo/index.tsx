@@ -5,6 +5,7 @@ import { useAppSelector, useAppDispatch } from '@/hooks'
 import { changeMessage } from '@/store/modules/counter'
 import hyRequest from '@/service'
 import { AxiosHeaders } from 'axios'
+import ClassComponent from './ClassComponent'
 // import type { RootState } from './store'
 
 interface IProps {
@@ -92,6 +93,7 @@ const Template: FC<IProps> = (props) => {
       {banners.map((item, index) => {
         return <div key={index}>{item.imageUrl}</div>
       })}
+      <ClassComponent name="zhangsan" />
     </div>
   )
 }
