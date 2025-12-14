@@ -4,8 +4,8 @@ export const fetchBannerDataAction = createAsyncThunk(
   'banners',
   async (arg, { dispatch, getState }) => {
     const res = await getBanners()
-    console.log(res)
-    return res.data
+    dispatch(changeBannerAction(res.data))
+    // return res.data
   }
 )
 type Banner = {
@@ -45,7 +45,23 @@ const initialState: RecommendState = {
 const recommendSlice = createSlice({
   name: 'recommend',
   initialState,
-  reducers: {}
+  reducers: {
+    changeBannerAction(state, { payload }) {
+      state.banners = payload
+    }
+  }
+  //   extraReducers: (builder) => {
+  //     builder
+  //       .addCase(fetchBannerDataAction.pending, (state, action) => {
+  //         console.log('pending')
+  //       })
+  //       .addCase(fetchBannerDataAction.fulfilled, (state, { payload }) => {
+  //         state.banners = payload
+  //       })
+  //       .addCase(fetchBannerDataAction.rejected, (state, action) => {
+  //         console.log('rejected')
+  //       })
+  //   }
 })
-
+export const { changeBannerAction } = recommendSlice.actions
 export default recommendSlice.reducer

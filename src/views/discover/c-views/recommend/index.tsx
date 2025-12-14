@@ -2,6 +2,7 @@ import { useAppDispatch } from '@/hooks'
 import { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
 import { fetchBannerDataAction } from './store/recommend'
+import TopBanner from './c-cpns/top-banner'
 
 interface IProps {
   children?: ReactNode
@@ -13,7 +14,11 @@ const Recommend: FC<IProps> = (props) => {
   useEffect(() => {
     dispatch(fetchBannerDataAction())
   }, [dispatch])
-  return <div>Recommend</div>
+  return (
+    <div>
+      <TopBanner></TopBanner>
+    </div>
+  )
 }
 
 //直接导出性能不高，即便props没有改变，组件也会重新渲染，使用memo可避免此问题
