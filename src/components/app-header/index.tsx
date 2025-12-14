@@ -5,7 +5,7 @@ import { SearchOutlined } from '@ant-design/icons'
 import { Input } from 'antd'
 import { HeaderLeft, HeaderRight, HeaderWrapper } from './style'
 
-import headerTitles from '@/assets/data/header-titles.json'
+import headerTitles from '@/assets/data/header_titles.json'
 
 interface IProps {
   children?: ReactNode
