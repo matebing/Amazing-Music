@@ -115,6 +115,72 @@ app.get('/banner', (request, response) => {
   response.send(result)
 })
 
+app.get('/hot/recommend', (request, response) => {
+  const result = {
+    code: 200,
+    messge: 'success',
+    data: [
+      {
+        id: 2218171336,
+        type: 0,
+        name: '后来你哭了，想安慰却忘了早已换了身份',
+        copywriter: '',
+        picUrl:
+          'http://p2.music.126.net/uFTzvFBkbTiK86AgiptL2w==/109951172237383791.jpg?param=140y140',
+        canDislike: true,
+        trackNumberUpdateTime: 1663237997419,
+        playCount: 51777632,
+        trackCount: 35,
+        highQuality: false,
+        alg: 'alg_high_quality'
+      },
+      {
+        id: 3865036,
+        type: 0,
+        name: '最陈奕迅·精选',
+        copywriter: '',
+        picUrl:
+          'http://p1.music.126.net/DuKyLyYhKd2YhWsRYkd9DQ==/109951172287476927.jpg?param=140y140',
+        canDislike: true,
+        trackNumberUpdateTime: 1663574893919,
+        playCount: 34498292,
+        trackCount: 302,
+        highQuality: false,
+        alg: 'alg_high_quality'
+      },
+      {
+        id: 645384312,
+        type: 0,
+        name: '不得了！这些英文歌的热评信息量好大……',
+        copywriter: '',
+        picUrl:
+          'http://p2.music.126.net/LGc-Y2eim_JgSj6qcATRsA==/109951172110343066.jpg?param=140y140',
+        canDislike: true,
+        trackNumberUpdateTime: 1515554115534,
+        playCount: 31463236,
+        trackCount: 63,
+        highQuality: true,
+        alg: 'alg_high_quality'
+      },
+      {
+        id: 330634870,
+        type: 0,
+        name: '「国语古风中国风神曲，细腻地抚摸你的耳膜」',
+        copywriter: '',
+        picUrl:
+          'http://p1.music.126.net/lvsT8Exg69-IUE8KPNJ9FA==/109951172253353369.jpg?param=140y140',
+        canDislike: true,
+        trackNumberUpdateTime: 1663166156004,
+        playCount: 51103128,
+        trackCount: 183,
+        highQuality: false,
+        alg: 'alg_high_quality'
+      }
+    ]
+  }
+  response.send(result)
+})
+
 app.listen(5000, () => {
   console.log('服务器1启动成功，请求地址：http://localhost:5000/images')
 })

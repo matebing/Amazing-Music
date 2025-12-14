@@ -1,8 +1,13 @@
 import { useAppDispatch } from '@/hooks'
 import { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
-import { fetchBannerDataAction } from './store/recommend'
+import {
+  fetchBannerDataAction,
+  fetchHotRecommendAction
+} from './store/recommend'
 import TopBanner from './c-cpns/top-banner'
+import { RecommendWrapper } from './style'
+import HotRecommend from './c-cpns/hot-recommend'
 
 interface IProps {
   children?: ReactNode
@@ -13,11 +18,16 @@ const Recommend: FC<IProps> = (props) => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(fetchBannerDataAction())
+    dispatch(fetchHotRecommendAction())
   }, [dispatch])
   return (
-    <div>
+    <RecommendWrapper>
       <TopBanner></TopBanner>
-    </div>
+      <div className="content wrap-v2">
+        <HotRecommend />
+        <div className="right">right</div>
+      </div>
+    </RecommendWrapper>
   )
 }
 

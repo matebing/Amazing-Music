@@ -10,3 +10,13 @@ export function getBanners() {
     headers
   })
 }
+
+export function getHotRecommend(limit = 30) {
+  return appRequest.get({
+    url: '/api/hot/recommend',
+    params: {
+      limit
+    },
+    headers
+  })
+}

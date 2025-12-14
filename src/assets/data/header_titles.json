@@ -28,10 +28,5 @@
     "title": "下载客户端",
     "type": "path",
     "link": "/download"
-  },
-  {
-    "title": "示例",
-    "type": "path",
-    "link": "/demo"
   }
 ]

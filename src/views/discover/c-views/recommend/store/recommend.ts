@@ -1,46 +1,32 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getBanners } from '../service/recommend'
+import { getBanners, getHotRecommend } from '../service/recommend'
+import { Banner, HotRecommend } from './type'
+
 export const fetchBannerDataAction = createAsyncThunk(
   'banners',
   async (arg, { dispatch, getState }) => {
     const res = await getBanners()
     dispatch(changeBannerAction(res.data))
+    console.log('banners', res)
     // return res.data
   }
 )
-type Banner = {
-  imageUrl: string
-  targetId: number
-  adId: string
-  targetType: number
-  titleColor: string
-  typeTitle: string
-  url: string
-  exclusive: boolean
-  monitorImpress: string
-  monitorClick: string
-  monitorType: string
-  monitorImpressList: string
-  monitorClickList: string
-  monitorBlackList: string
-  extMonitor: string
-  extMonitorInfo: string
-  adSource: string
-  adLocation: string
-  adDispatchJson: string
-  encodeId: string
-  program: string
-  event: string
-  video: string
-  song: string
-  scm: string
-  bannerBizType: string
-}
+export const fetchHotRecommendAction = createAsyncThunk(
+  'hotRecommend',
+  async (args, { dispatch }) => {
+    const res = await getHotRecommend(8)
+    dispatch(changeHotRecommendAction(res.data))
+    console.log('hotRecommend', res)
+  }
+)
+
 interface RecommendState {
   banners: Banner[]
+  hotRecommends: HotRecommend[]
 }
 const initialState: RecommendState = {
-  banners: []
+  banners: [],
+  hotRecommends: []
 }
 const recommendSlice = createSlice({
   name: 'recommend',
@@ -48,6 +34,9 @@ const recommendSlice = createSlice({
   reducers: {
     changeBannerAction(state, { payload }) {
       state.banners = payload
+    },
+    changeHotRecommendAction(state, { payload }) {
+      state.hotRecommends = payload
     }
   }
   //   extraReducers: (builder) => {
@@ -63,5 +52,6 @@ const recommendSlice = createSlice({
   //       })
   //   }
 })
-export const { changeBannerAction } = recommendSlice.actions
+export const { changeBannerAction, changeHotRecommendAction } =
+  recommendSlice.actions
 export default recommendSlice.reducer
