@@ -54,7 +54,7 @@ app.get('/banner', (request, response) => {
       },
       {
         imageUrl:
-          'https://p5.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/77104929003/49f5/5a98/1e11/d36e165668ff9079074a796263458eaf.jpg?imageView&quality=89',
+          'https://p5.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/77101396017/cada/5f1b/f8a0/4d0e1dd77d1f5a8aa3f3ab29401e8e83.jpg?imageView&quality=89',
         targetId: 0,
         adId: 'null',
         targetType: 3000,

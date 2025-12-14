@@ -16,3 +16,5 @@
  在store中新建modules，modules存储slice/recommend页面的数据，专门负责数据存储
  //按照业务划分文件夹
  将recommend.ts封装的rul和slice/页面数据和页面组件放在一起
+
+ ?imageView&blur=40x20

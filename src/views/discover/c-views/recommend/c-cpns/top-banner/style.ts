@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 export const TopBannerWrapper = styled.div`
+  background: url('https://p5.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/77101396017/cada/5f1b/f8a0/4d0e1dd77d1f5a8aa3f3ab29401e8e83.jpg?imageView&quality=89')
+    center center / 3000px;
   .banner {
     height: 270px;
     display: flex;

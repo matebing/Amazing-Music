@@ -1,7 +1,8 @@
 import { useAppSelector } from '@/hooks'
-import { memo, useRef } from 'react'
+import { memo, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 import { Carousel } from 'antd'
+import classNames from 'classnames'
 import {
   BannerButton,
   BannerLeft,
@@ -16,12 +17,32 @@ interface IProps {
 
 const TopBanner: FC<IProps> = (props) => {
   const carouselRef = useRef(null)
+
+  const [currentIndex, setCurrentIndex] = useState(0)
   const { banners } = useAppSelector(
     (state) => ({
       banners: state.recommend.banners
     }),
     shallowEqual
   )
+
+  function beforeChange(from: number, to: number) {
+    // setCurrentIndex(-1)
+  }
+
+  function afterChange(current: number) {
+    setCurrentIndex(current)
+    console.log(current)
+  }
+
+  //获取背景图片，右值时再获取，无值时不要获取
+  let bgImageUrl
+  if (currentIndex >= 0 && banners.length > 0) {
+    bgImageUrl = banners[currentIndex]?.imageUrl
+  }
+  // if (bgImageUrl) {
+  //   bgImageUrl = bgImageUrl + '?imageView&blur=40x20'
+  // }
 
   function buttonClick(direction: string) {
     return () => {
@@ -34,10 +55,20 @@ const TopBanner: FC<IProps> = (props) => {
   }
 
   return (
-    <TopBannerWrapper>
+    <TopBannerWrapper
+      style={{ background: `url('${bgImageUrl}') center center / 6000px` }}
+    >
       <div className="banner wrap-v2">
         <BannerLeft>
-          <Carousel ref={carouselRef} autoplay autoplaySpeed={1000}>
+          <Carousel
+            ref={carouselRef}
+            autoplay
+            dots={false}
+            autoplaySpeed={3000}
+            effect="fade"
+            beforeChange={beforeChange}
+            afterChange={afterChange}
+          >
             {banners.map((item) => {
               return (
                 <div className="banner-item" key={item.imageUrl}>
@@ -50,6 +81,19 @@ const TopBanner: FC<IProps> = (props) => {
               )
             })}
           </Carousel>
+          <ul className="dots">
+            {banners.map((item, index) => {
+              return (
+                <li key={index}>
+                  <span
+                    className={classNames('item', {
+                      active: index === currentIndex
+                    })}
+                  ></span>
+                </li>
+              )
+            })}
+          </ul>
         </BannerLeft>
         <BannerRight>
           <div>PC 安卓 iPhone WP iPad Mac 六大客户端</div>
