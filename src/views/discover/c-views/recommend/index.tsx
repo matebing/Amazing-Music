@@ -1,11 +1,18 @@
-import { memo } from 'react'
+import { useAppDispatch } from '@/hooks'
+import { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
+import { fetchBannerDataAction } from './store/recommend'
 
 interface IProps {
   children?: ReactNode
 }
 
 const Recommend: FC<IProps> = (props) => {
+  //发起网络请求，action获取数据
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(fetchBannerDataAction())
+  }, [dispatch])
   return <div>Recommend</div>
 }
 

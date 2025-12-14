@@ -4,7 +4,7 @@ import type {
   AxiosResponse
 } from 'axios'
 
-export interface HYInterceptors<T = AxiosResponse> {
+export interface AppInterceptors<T = AxiosResponse> {
   requestSuccessFn?: (
     config: InternalAxiosRequestConfig
   ) => InternalAxiosRequestConfig
@@ -13,8 +13,8 @@ export interface HYInterceptors<T = AxiosResponse> {
   responseFailureFn?: (err: any) => any
 }
 
-export interface HYRequestConfig<
+export interface AppRequestConfig<
   T = AxiosResponse
 > extends InternalAxiosRequestConfig {
-  interceptors?: HYInterceptors<T>
+  interceptors?: AppInterceptors<T>
 }

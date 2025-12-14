@@ -1,11 +1,11 @@
 import { AxiosHeaders } from 'axios'
 import { BASE_URL, TIME_OUT } from './config'
-import HYRequest from './request'
+import AppRequest from './request'
 
 const headers = new AxiosHeaders()
 headers.set('Content-Type', 'application/json')
 
-const hyRequest = new HYRequest({
+const appRequest = new AppRequest({
   baseURL: BASE_URL,
   timeout: TIME_OUT,
   headers,
@@ -19,4 +19,4 @@ const hyRequest = new HYRequest({
   }
 })
 
-export default hyRequest
+export default appRequest

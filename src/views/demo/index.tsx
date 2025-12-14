@@ -3,7 +3,7 @@ import type { FC, ReactNode } from 'react'
 import { shallowEqual } from 'react-redux'
 import { useAppSelector, useAppDispatch } from '@/hooks'
 import { changeMessage } from '@/store/modules/counter'
-import hyRequest from '@/service'
+import appRequest from '@/service'
 import { AxiosHeaders } from 'axios'
 import ClassComponent from './ClassComponent'
 // import type { RootState } from './store'
@@ -75,7 +75,7 @@ const Template: FC<IProps> = (props) => {
   useEffect(() => {
     const headers = new AxiosHeaders()
     headers.set('Content-Type', 'application/json')
-    hyRequest
+    appRequest
       .get({
         url: '/api/banner',
         headers: new AxiosHeaders()
