@@ -175,6 +175,34 @@ app.get('/hot/recommend', (request, response) => {
         trackCount: 183,
         highQuality: false,
         alg: 'alg_high_quality'
+      },
+      {
+        id: 669993197,
+        type: 0,
+        name: '「能歌能晃」华语说唱天花板2.0',
+        copywriter: '',
+        picUrl:
+          'http://p1.music.126.net/ZQYW6apajpFizqmtu9irFA==/109951169852459884.jpg?param=140y140',
+        canDislike: true,
+        trackNumberUpdateTime: 1606511624538,
+        playCount: 22594984,
+        trackCount: 167,
+        highQuality: false,
+        alg: 'alg_high_quality'
+      },
+      {
+        id: 2577388187,
+        type: 0,
+        name: 'Future Beats 💚 糟糕，是心动的感觉！',
+        copywriter: '',
+        picUrl:
+          'http://p1.music.126.net/tfhTGU4ISH_6boU5OsBUmA==/109951169949548289.jpg?param=140y140',
+        canDislike: true,
+        trackNumberUpdateTime: 1554535653444,
+        playCount: 42089900,
+        trackCount: 50,
+        highQuality: true,
+        alg: 'alg_high_quality'
       }
     ]
   }
