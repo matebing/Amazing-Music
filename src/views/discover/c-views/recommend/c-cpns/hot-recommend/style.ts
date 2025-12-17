@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 export const HotRecommendWrapper = styled.div`
-  .hot-recommend {
+  .hot-recommend-list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

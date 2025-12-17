@@ -13,7 +13,7 @@ const SongMenu: FC<IProps> = (props) => {
   return (
     <SongMenuWrapper>
       <div className="top">
-        <img src={formatImage(songData.picUrl, 140)} alt="" />
+        <img src={formatImage(songData.picUrl, 70)} alt="" />
         <div className="cover sprite_cover">
           <div className="info sprite_cover">
             <span className="count">

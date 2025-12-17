@@ -20,8 +20,8 @@ const AreaHeader: FC<IProps> = (props) => {
   } = props
 
   return (
-    <AreaHeaderWrapper className="sprite_02">
-      <div className="left">
+    <AreaHeaderWrapper>
+      <div className="left sprite_02">
         <h3 className="title">{title}</h3>
         <div className="keywords">
           {keyWords.map((item, index) => {
@@ -38,7 +38,7 @@ const AreaHeader: FC<IProps> = (props) => {
         <Link className="more" to={moreLink}>
           {moreText}
         </Link>
-        <i className="sprite_02 icon"></i>
+        <i className="icon sprite_02"></i>
       </div>
     </AreaHeaderWrapper>
   )

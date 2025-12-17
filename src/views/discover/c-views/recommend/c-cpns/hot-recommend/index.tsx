@@ -18,13 +18,13 @@ const HotRecommend: FC<IProps> = (props) => {
     shallowEqual
   )
   return (
-    <HotRecommendWrapper className="wrap-v2">
+    <HotRecommendWrapper>
       <AreaHeader
         title="热门推荐"
         keyWords={['华语', '流行', '摇滚', '电子', '古风']}
         moreLink="/discover/songs"
       />
-      <div className="hot-recommend">
+      <div className="hot-recommend-list">
         {hotRecommends.map((item, index) => {
           return <SongMenu key={index} songData={item} />
         })}

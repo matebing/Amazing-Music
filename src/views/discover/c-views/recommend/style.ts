@@ -8,7 +8,7 @@ export const RecommendWrapper = styled.div`
 
     > .left {
       padding: 20px;
-      width: 729px;
+      width: 690px;
     }
     > .right {
       margin-left: 1px;

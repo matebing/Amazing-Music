@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 export const SongMenuWrapper = styled.div`
-  width: 140px;
+  width: 150px;
   margin: 15px 0;
   cursor: pointer;
 
@@ -8,8 +8,8 @@ export const SongMenuWrapper = styled.div`
     position: relative;
 
     > img {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
     }
 
     .cover {
