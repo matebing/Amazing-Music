@@ -3,7 +3,8 @@ import { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
 import {
   fetchBannerDataAction,
-  fetchHotRecommendAction
+  fetchHotRecommendAction,
+  fetchNewestAlbumsAction
 } from './store/recommend'
 import TopBanner from './c-cpns/top-banner'
 import { RecommendWrapper } from './style'
@@ -20,6 +21,7 @@ const Recommend: FC<IProps> = (props) => {
   useEffect(() => {
     dispatch(fetchBannerDataAction())
     dispatch(fetchHotRecommendAction())
+    dispatch(fetchNewestAlbumsAction())
   }, [dispatch])
   return (
     <RecommendWrapper>

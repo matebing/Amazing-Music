@@ -20,3 +20,13 @@ export function getHotRecommend(limit = 30) {
     headers
   })
 }
+
+export function getNewestAlbums(limit = 10) {
+  return appRequest.get({
+    url: '/api/newest/albums',
+    params: {
+      limit
+    },
+    headers
+  })
+}

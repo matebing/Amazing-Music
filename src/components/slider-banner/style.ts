@@ -45,6 +45,7 @@ export const SliderBannerWrapper = styled.div`
       .album-list {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 0 5px;
       }
     }

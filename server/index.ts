@@ -6,6 +6,7 @@ app.use((request, response, next) => {
   next()
 })
 
+//图片列表
 app.get('/images', (request, response) => {
   const images = [
     {
@@ -18,6 +19,7 @@ app.get('/images', (request, response) => {
   response.send(images)
 })
 
+//轮播图
 app.get('/banner', (request, response) => {
   const result = {
     code: 200,
@@ -115,6 +117,7 @@ app.get('/banner', (request, response) => {
   response.send(result)
 })
 
+//热门推荐
 app.get('/hot/recommend', (request, response) => {
   const result = {
     code: 200,
@@ -209,6 +212,256 @@ app.get('/hot/recommend', (request, response) => {
   response.send(result)
 })
 
+//新碟上架
+app.get('/newest/albums', (request, response) => {
+  const result = {
+    code: 200,
+    message: 'success',
+    data: [
+      {
+        newAlbum: true,
+        id: 153778832,
+        name: 'すずめの戸締まり',
+        artistName: 'RADWIMPS/陣内一真',
+        picUrl:
+          'http://p2.music.126.net/ZLunCTp4RRnu7N8lGVw4Fw==/109951172372358346.jpg?param=100y100',
+        price: 30,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/D1SFObeLsaW_KMojcJZquw==/10995116799320860.jpg',
+        pubTime: 1666868400771,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 8,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153227407,
+        name: '5522',
+        artistName: '安溥 anpu',
+        picUrl:
+          'http://p2.music.126.net/Sp4-nb2K1u6R-GCDnqrXyw==/109951172440327463.jpg?param=100y100',
+        price: 30,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/FATAg3PF9fO5DuWjTtHUxw==/10995116796156160.jpg',
+        pubTime: 1666868400728,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 7,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153225520,
+        name: '减韵文音·胡笳十八拍',
+        artistName: '朝简/史弘弘/窦唯',
+        picUrl:
+          'http://p2.music.126.net/o3BtModPfRAq0Ughv7Khjg==/109951172370674253.jpg?param=100y100',
+        price: 30,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/AnoqT8oUKhwmjEFevfDg==/10995116785478361.jpg',
+        pubTime: 1666059600490,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 7,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153209488,
+        name: 'I love',
+        artistName: '(G)I-DLE',
+        picUrl:
+          'http://p2.music.126.net/r1AKMenByofI7Qqj3E5EqQ==/109951172091080013.jpg?param=100y100',
+        price: 18,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/RAF9ImT625KGEbLY4mQ==/10995116797995976.jpg',
+        pubTime: 1665997200765,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 16,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153778832,
+        name: 'すずめの戸締まり',
+        artistName: 'RADWIMPS/陣内一真',
+        picUrl:
+          'http://p2.music.126.net/ZLunCTp4RRnu7N8lGVw4Fw==/109951172372358346.jpg?param=100y100',
+        price: 30,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/D1SFObeLsaW_KMojcJZquw==/10995116799320860.jpg',
+        pubTime: 1666868400771,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 8,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153227407,
+        name: '5522',
+        artistName: '安溥 anpu',
+        picUrl:
+          'http://p2.music.126.net/Sp4-nb2K1u6R-GCDnqrXyw==/109951172440327463.jpg?param=100y100',
+        price: 30,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/FATAg3PF9fO5DuWjTtHUxw==/10995116796156160.jpg',
+        pubTime: 1666868400728,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 7,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153225520,
+        name: '减韵文音·胡笳十八拍',
+        artistName: '朝简/史弘弘/窦唯',
+        picUrl:
+          'http://p2.music.126.net/o3BtModPfRAq0Ughv7Khjg==/109951172370674253.jpg?param=100y100',
+        price: 30,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/AnoqT8oUKhwmjEFevfDg==/10995116785478361.jpg',
+        pubTime: 1666059600490,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 7,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153209488,
+        name: 'I love',
+        artistName: '(G)I-DLE',
+        picUrl:
+          'http://p2.music.126.net/r1AKMenByofI7Qqj3E5EqQ==/109951172091080013.jpg?param=100y100',
+        price: 18,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/RAF9ImT625KGEbLY4mQ==/10995116797995976.jpg',
+        pubTime: 1665997200765,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 16,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153778832,
+        name: 'すずめの戸締まり',
+        artistName: 'RADWIMPS/陣内一真',
+        picUrl:
+          'http://p2.music.126.net/ZLunCTp4RRnu7N8lGVw4Fw==/109951172372358346.jpg?param=100y100',
+        price: 30,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/D1SFObeLsaW_KMojcJZquw==/10995116799320860.jpg',
+        pubTime: 1666868400771,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 8,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153227407,
+        name: '5522',
+        artistName: '安溥 anpu',
+        picUrl:
+          'http://p2.music.126.net/Sp4-nb2K1u6R-GCDnqrXyw==/109951172440327463.jpg?param=100y100',
+        price: 30,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/FATAg3PF9fO5DuWjTtHUxw==/10995116796156160.jpg',
+        pubTime: 1666868400728,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 7,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153225520,
+        name: '减韵文音·胡笳十八拍',
+        artistName: '朝简/史弘弘/窦唯',
+        picUrl:
+          'http://p2.music.126.net/o3BtModPfRAq0Ughv7Khjg==/109951172370674253.jpg?param=100y100',
+        price: 30,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/AnoqT8oUKhwmjEFevfDg==/10995116785478361.jpg',
+        pubTime: 1666059600490,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 7,
+        artistType: 0,
+        status: 0
+      },
+      {
+        newAlbum: true,
+        id: 153209488,
+        name: 'I love',
+        artistName: '(G)I-DLE',
+        picUrl:
+          'http://p2.music.126.net/r1AKMenByofI7Qqj3E5EqQ==/109951172091080013.jpg?param=100y100',
+        price: 18,
+        customPriceConfig: null,
+        coverUrl:
+          'http://p2.music.126.net/RAF9ImT625KGEbLY4mQ==/10995116797995976.jpg',
+        pubTime: 1665997200765,
+        productId: 0,
+        saleNum: 0,
+        topFans: null,
+        albumType: 0,
+        area: 16,
+        artistType: 0,
+        status: 0
+      }
+    ]
+  }
+  response.send(result)
+})
 app.listen(5000, () => {
   console.log('服务器1启动成功，请求地址：http://localhost:5000/images')
 })
