@@ -206,6 +206,34 @@ app.get('/hot/recommend', (request, response) => {
         trackCount: 50,
         highQuality: true,
         alg: 'alg_high_quality'
+      },
+      {
+        id: 2218171336,
+        type: 0,
+        name: '后来你哭了，想安慰却忘了早已换了身份',
+        copywriter: '',
+        picUrl:
+          'http://p2.music.126.net/uFTzvFBkbTiK86AgiptL2w==/109951172237383791.jpg?param=140y140',
+        canDislike: true,
+        trackNumberUpdateTime: 1663237997419,
+        playCount: 51777632,
+        trackCount: 35,
+        highQuality: false,
+        alg: 'alg_high_quality'
+      },
+      {
+        id: 3865036,
+        type: 0,
+        name: '最陈奕迅·精选',
+        copywriter: '',
+        picUrl:
+          'http://p1.music.126.net/DuKyLyYhKd2YhWsRYkd9DQ==/109951172287476927.jpg?param=140y140',
+        canDislike: true,
+        trackNumberUpdateTime: 1663574893919,
+        playCount: 34498292,
+        trackCount: 302,
+        highQuality: false,
+        alg: 'alg_high_quality'
       }
     ]
   }
@@ -300,7 +328,7 @@ app.get('/newest/albums', (request, response) => {
       },
       {
         newAlbum: true,
-        id: 153778832,
+        id: 153778856,
         name: 'すずめの戸締まり',
         artistName: 'RADWIMPS/陣内一真',
         picUrl:
@@ -320,7 +348,7 @@ app.get('/newest/albums', (request, response) => {
       },
       {
         newAlbum: true,
-        id: 153227407,
+        id: 153847407,
         name: '5522',
         artistName: '安溥 anpu',
         picUrl:
@@ -340,7 +368,7 @@ app.get('/newest/albums', (request, response) => {
       },
       {
         newAlbum: true,
-        id: 153225520,
+        id: 186225520,
         name: '减韵文音·胡笳十八拍',
         artistName: '朝简/史弘弘/窦唯',
         picUrl:
@@ -360,7 +388,7 @@ app.get('/newest/albums', (request, response) => {
       },
       {
         newAlbum: true,
-        id: 153209488,
+        id: 151909488,
         name: 'I love',
         artistName: '(G)I-DLE',
         picUrl:
@@ -380,7 +408,7 @@ app.get('/newest/albums', (request, response) => {
       },
       {
         newAlbum: true,
-        id: 153778832,
+        id: 153538832,
         name: 'すずめの戸締まり',
         artistName: 'RADWIMPS/陣内一真',
         picUrl:
@@ -400,7 +428,7 @@ app.get('/newest/albums', (request, response) => {
       },
       {
         newAlbum: true,
-        id: 153227407,
+        id: 153223497,
         name: '5522',
         artistName: '安溥 anpu',
         picUrl:
@@ -420,7 +448,7 @@ app.get('/newest/albums', (request, response) => {
       },
       {
         newAlbum: true,
-        id: 153225520,
+        id: 118625520,
         name: '减韵文音·胡笳十八拍',
         artistName: '朝简/史弘弘/窦唯',
         picUrl:
@@ -440,7 +468,7 @@ app.get('/newest/albums', (request, response) => {
       },
       {
         newAlbum: true,
-        id: 153209488,
+        id: 153285488,
         name: 'I love',
         artistName: '(G)I-DLE',
         picUrl:
@@ -459,6 +487,159 @@ app.get('/newest/albums', (request, response) => {
         status: 0
       }
     ]
+  }
+  response.send(result)
+})
+
+//排行榜
+app.get('/playList/detail', (request, response) => {
+  const { id } = request.query
+  console.log('参数', id)
+  const upRanking = {
+    id: '0x4j358kj',
+    type: '上升榜',
+    name: '陈奕迅',
+    coverImgUrl:
+      'http://p4.music.126.net/rIi7Qzy2i2Y_1QD7cd0MYA==/109951170048506929.jpg',
+    tracks: [
+      {
+        name: '冬蛾'
+      },
+      {
+        name: '小问题'
+      },
+      {
+        name: '分秒宇宙'
+      },
+      {
+        name: '碎碎念'
+      },
+      {
+        name: '落叶的回信'
+      },
+      {
+        name: '小半'
+      },
+      {
+        name: '如果呢'
+      },
+      {
+        name: '泪桥'
+      },
+      {
+        name: '唯一'
+      },
+      {
+        name: '不知从何说起'
+      },
+      {
+        name: '落叶的回信'
+      },
+      {
+        name: '小半'
+      }
+    ]
+  }
+  const newRanking = {
+    id: '0x8j35k8j',
+    type: '新歌榜',
+    name: '陈奕迅',
+    coverImgUrl:
+      'http://p3.music.126.net/5guhqPBTcIrrhLBotgaT6w==/109951170048511751.jpg',
+    tracks: [
+      {
+        name: '碎碎念'
+      },
+      {
+        name: '落叶的回信'
+      },
+      {
+        name: '小半'
+      },
+      {
+        name: '如果呢'
+      },
+      {
+        name: '泪桥'
+      },
+      {
+        name: '唯一'
+      },
+      {
+        name: '不知从何说起'
+      },
+      {
+        name: '冬蛾'
+      },
+      {
+        name: '小问题'
+      },
+      {
+        name: '分秒宇宙'
+      },
+      {
+        name: '落叶的回信'
+      },
+      {
+        name: '小半'
+      }
+    ]
+  }
+  const originRanking = {
+    id: '0x68f35kj',
+    type: '原创榜',
+    name: '陈奕迅',
+    coverImgUrl:
+      'http://p3.music.126.net/BaP9nrocNTL3gGThysv4eQ==/109951170091896587.jpg',
+    tracks: [
+      {
+        name: '公民身份圣诞快乐入户油腻腻日月明'
+      },
+      {
+        name: '泪桥'
+      },
+      {
+        name: '唯一'
+      },
+      {
+        name: '不知从何说起'
+      },
+      {
+        name: '冬蛾'
+      },
+      {
+        name: '小问题'
+      },
+      {
+        name: '分秒宇宙'
+      },
+      {
+        name: '碎碎念'
+      },
+      {
+        name: '落叶的回信'
+      },
+      {
+        name: '小半'
+      },
+      {
+        name: '落叶的回信'
+      },
+      {
+        name: '小半'
+      }
+    ]
+  }
+
+  const result = {
+    code: 200,
+    message: 'success',
+    data:
+      Number(id) === 666666
+        ? upRanking
+        : Number(id) === 888888
+          ? newRanking
+          : originRanking
   }
   response.send(result)
 })

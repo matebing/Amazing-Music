@@ -4,12 +4,14 @@ import type { FC, ReactNode } from 'react'
 import {
   fetchBannerDataAction,
   fetchHotRecommendAction,
-  fetchNewestAlbumsAction
+  fetchNewestAlbumsAction,
+  fetchRankingDataAction
 } from './store/recommend'
 import TopBanner from './c-cpns/top-banner'
 import { RecommendWrapper } from './style'
 import HotRecommend from './c-cpns/hot-recommend'
 import NewAlbum from './c-cpns/new-album'
+import TopRanking from './c-cpns/top-ranking'
 
 interface IProps {
   children?: ReactNode
@@ -22,6 +24,8 @@ const Recommend: FC<IProps> = (props) => {
     dispatch(fetchBannerDataAction())
     dispatch(fetchHotRecommendAction())
     dispatch(fetchNewestAlbumsAction())
+    dispatch(fetchRankingDataAction())
+    // dispatch(fetchRecommendDataAction())
   }, [dispatch])
   return (
     <RecommendWrapper>
@@ -30,6 +34,7 @@ const Recommend: FC<IProps> = (props) => {
         <div className="left">
           <HotRecommend />
           <NewAlbum />
+          <TopRanking />
         </div>
         <div className="right">right</div>
       </div>

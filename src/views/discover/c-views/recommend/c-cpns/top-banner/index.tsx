@@ -32,7 +32,6 @@ const TopBanner: FC<IProps> = (props) => {
 
   function afterChange(current: number) {
     setCurrentIndex(current)
-    console.log(current)
   }
 
   //获取背景图片，右值时再获取，无值时不要获取

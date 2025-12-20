@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import {
   getBanners,
   getHotRecommend,
-  getNewestAlbums
+  getNewestAlbums,
+  getPlayListDetail
 } from '../service/recommend'
 import { Banner, HotRecommend } from './type'
 
@@ -31,15 +32,69 @@ export const fetchNewestAlbumsAction = createAsyncThunk(
     console.log('newestAlbums', res)
   }
 )
+const rankingIds: Array<number> = [666666, 888888, 686868]
+export const fetchRankingDataAction = createAsyncThunk(
+  'rankingData',
+  async (_, { dispatch }) => {
+    //1、每个请求单独处理
+    // for (const id of rankingIds) {
+    //   getPlayListDetail(id).then((res) => {
+    //     switch (id) {
+    //       case 666666:
+    //         console.log('飙射榜', res)
+    //         break
+    //       case 888888:
+    //         console.log('新歌榜', res)
+    //         break
+    //       case 686868:
+    //         console.log('原创榜', res)
+    //     }
+    //   })
+    // }
+    //2、将三个数组都拿到，放到数组中统一处理
+    //获取到所有结果后，进行dispatch
+    //获取到的结果需要有顺序
+    const promises: Promise<any>[] = []
+    for (const id of rankingIds) {
+      promises.push(getPlayListDetail(id))
+    }
+    Promise.all(promises).then((res) => {
+      const rankingData = res.map((item) => {
+        return item.data
+      })
+      dispatch(changeRankingDataAction(rankingData))
+      console.log('rankingData', rankingData, res)
+    })
+  }
+)
+
+//合并
+export const fetchRecommendDataAction = createAsyncThunk(
+  'recommendData',
+  (_, { dispatch }) => {
+    //1、轮播图
+    getBanners().then((res) => {
+      dispatch(changeBannerAction(res.data))
+    })
+    getHotRecommend().then((res) => {
+      dispatch(changeHotRecommendAction(res.data))
+    })
+    getNewestAlbums().then((res) => {
+      dispatch(changeNewestAlbumsAction(res.data))
+    })
+  }
+)
 export interface RecommendState {
   banners: Banner[]
   hotRecommends: HotRecommend[]
-  newestAlbums: any[]
+  newestAlbums: Array<any>
+  rankingData: Array<any>
 }
 const initialState: RecommendState = {
   banners: [],
   hotRecommends: [],
-  newestAlbums: []
+  newestAlbums: [],
+  rankingData: []
 }
 const recommendSlice = createSlice({
   name: 'recommend',
@@ -53,6 +108,9 @@ const recommendSlice = createSlice({
     },
     changeNewestAlbumsAction(state, { payload }) {
       state.newestAlbums = payload
+    },
+    changeRankingDataAction(state, { payload }) {
+      state.rankingData = payload
     }
   }
   //   extraReducers: (builder) => {
@@ -71,6 +129,7 @@ const recommendSlice = createSlice({
 export const {
   changeBannerAction,
   changeHotRecommendAction,
-  changeNewestAlbumsAction
+  changeNewestAlbumsAction,
+  changeRankingDataAction
 } = recommendSlice.actions
 export default recommendSlice.reducer
