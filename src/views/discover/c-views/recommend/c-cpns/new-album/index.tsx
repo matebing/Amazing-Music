@@ -12,7 +12,7 @@ interface IProps {
 const NewAlbum: FC<IProps> = (props) => {
   // 从redux中获取数据
   const { newestAlbums } = useAppSelector((state) => ({
-    newestAlbums: state.recommend.newestAlbums
+    newestAlbums: state.recommend.newestAlbums || []
   }))
   console.log('新碟上架', newestAlbums)
   return (

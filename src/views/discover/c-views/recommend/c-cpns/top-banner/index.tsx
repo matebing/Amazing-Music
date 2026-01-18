@@ -21,7 +21,7 @@ const TopBanner: FC<IProps> = (props) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const { banners } = useAppSelector(
     (state) => ({
-      banners: state.recommend.banners
+      banners: state.recommend.banners || []
     }),
     shallowEqual
   )
@@ -34,7 +34,7 @@ const TopBanner: FC<IProps> = (props) => {
     setCurrentIndex(current)
   }
 
-  //获取背景图片，右值时再获取，无值时不要获取
+  //获取背景图片，有值时再获取，无值时不要获取
   let bgImageUrl
   if (currentIndex >= 0 && banners.length > 0) {
     bgImageUrl = banners[currentIndex]?.imageUrl

@@ -3,7 +3,8 @@ import {
   getBanners,
   getHotRecommend,
   getNewestAlbums,
-  getPlayListDetail
+  getPlayListDetail,
+  getSettleSingers
 } from '../service/recommend'
 import { Banner, HotRecommend } from './type'
 
@@ -67,6 +68,14 @@ export const fetchRankingDataAction = createAsyncThunk(
     })
   }
 )
+export const fetchSettleSingersAction = createAsyncThunk(
+  'artistList',
+  async (args, { dispatch }) => {
+    const res = await getSettleSingers()
+    dispatch(changeSettleSingersAction(res.data))
+    console.log('artistList', res)
+  }
+)
 
 //合并
 export const fetchRecommendDataAction = createAsyncThunk(
@@ -82,6 +91,9 @@ export const fetchRecommendDataAction = createAsyncThunk(
     getNewestAlbums().then((res) => {
       dispatch(changeNewestAlbumsAction(res.data))
     })
+    getSettleSingers().then((res) => {
+      dispatch(changeSettleSingersAction(res.data))
+    })
   }
 )
 export interface RecommendState {
@@ -89,12 +101,14 @@ export interface RecommendState {
   hotRecommends: HotRecommend[]
   newestAlbums: Array<any>
   rankingData: Array<any>
+  settleSingers: Array<any>
 }
 const initialState: RecommendState = {
   banners: [],
   hotRecommends: [],
   newestAlbums: [],
-  rankingData: []
+  rankingData: [],
+  settleSingers: []
 }
 const recommendSlice = createSlice({
   name: 'recommend',
@@ -111,6 +125,9 @@ const recommendSlice = createSlice({
     },
     changeRankingDataAction(state, { payload }) {
       state.rankingData = payload
+    },
+    changeSettleSingersAction(state, { payload }) {
+      state.settleSingers = payload
     }
   }
   //   extraReducers: (builder) => {
@@ -130,6 +147,7 @@ export const {
   changeBannerAction,
   changeHotRecommendAction,
   changeNewestAlbumsAction,
-  changeRankingDataAction
+  changeRankingDataAction,
+  changeSettleSingersAction
 } = recommendSlice.actions
 export default recommendSlice.reducer

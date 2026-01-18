@@ -13,7 +13,7 @@ interface IProps {
 const HotRecommend: FC<IProps> = (props) => {
   const { hotRecommends } = useAppSelector(
     (state) => ({
-      hotRecommends: state.recommend.hotRecommends
+      hotRecommends: state.recommend.hotRecommends || []
     }),
     shallowEqual
   )

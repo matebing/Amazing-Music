@@ -643,6 +643,140 @@ app.get('/playList/detail', (request, response) => {
   }
   response.send(result)
 })
+
+//入驻歌手
+app.get('/artist/list', (request, response) => {
+  const result = {
+    code: 200,
+    messge: 'success',
+    data: [
+      {
+        albumSize: 126,
+        alias: ['Eason Chan', 'Chan Yick Shun'],
+        briefDesc: '',
+        fansCount: 8137465,
+        followed: false,
+        id: 2116,
+        img1vId: 109951166115911710,
+        img1vId_str: '109951166115911710',
+        img1vUrl:
+          'http://p1.music.126.net/rYYhHXZHwCfiZe0N46F37Q==/109951166115911710.jpg',
+        musicSize: 1825,
+        name: '陈奕迅',
+        picId: 109951166115915090,
+        picId_str: '109951166115915081',
+        picUrl:
+          'http://p2.music.126.net/ZLunCTp4RRnu7N8lGVw4Fw==/109951172372358346.jpg',
+        topicPerson: 0,
+        trans: ''
+      },
+      {
+        albumSize: 58,
+        alias: ['JJ Lin', 'Wayne Lim'],
+        briefDesc: '',
+        fansCount: 8827769,
+        followed: false,
+        id: 3684,
+        img1v1Id: 109951167878713400,
+        img1v1Id_str: '109951167878713410',
+        img1v1Url:
+          'http://p1.music.126.net/thrEGQSfLQpOKd6M5yBEEg==/109951167878713410.jpg',
+        musicSize: 531,
+        name: '林俊杰',
+        picId: 109951167878710660,
+        picId_str: '109951167878710661',
+        picUrl:
+          'http://p1.music.126.net/7636PzUiFMETHU7SAr05FA==/109951167878710661.jpg',
+        topicPerson: 0,
+        trans: ''
+      },
+      {
+        accountId: 97137413,
+        albumSize: 19,
+        alias: ['Joker Xue'],
+        briefDesc: '',
+        fansCount: 15149199,
+        followed: false,
+        id: 5781,
+        imglvId: 109951165034950660,
+        imglvId_str: '109951165034950656',
+        imglvUrl:
+          'http://p1.music.126.net/1tSJDTPcbZvNTCdsn4RYA==/109951165034950656.jpg',
+        musicSize: 254,
+        name: '薛之谦',
+        picId: 109951165034938860,
+        picId_str: '109951165034938865',
+        picUrl:
+          'http://p2.music.126.net/LGc-Y2eim_JgSj6qcATRsA==/109951172110343066.jpg',
+        topicPerson: 0,
+        trans: ''
+      },
+      {
+        accountId: 31265745,
+        albumSize: 46,
+        alias: ['Vae'],
+        briefDesc: '',
+        fansCount: 6684559,
+        followed: false,
+        id: 5771,
+        imgvlId: 109951163536269820,
+        imgvlId_str: '109951163536269820',
+        imgvlUrl:
+          'http://p1.music.126.net/ATZ8-mOxophKXrLdxiXMZw==/109951163536269820.jpg',
+        musicSize: 177,
+        name: '许嵩',
+        picId: 109951163536274580,
+        picId_str: '109951163536274581',
+        picUrl:
+          'http://p1.music.126.net/DuKyLyYhKd2YhWsRYkd9DQ==/109951172287476927.jpg',
+        topicPerson: 0,
+        trans: ''
+      },
+      {
+        accountId: 1750344369,
+        albumSize: 36,
+        alias: [],
+        briefDesc: '',
+        fansCount: 3832819,
+        followed: false,
+        id: 31376161,
+        img1v1Id: 109951165122695490,
+        img1v1Id_str: '109951165122695489',
+        img1v1Url:
+          'http://p1.music.126.net/ei0o1W2N_SX1vpkXr2DDtA==/109951165122695489.jpg',
+        musicSize: 135,
+        name: '领人中',
+        picId: 109951165122696430,
+        picId_str: '109951165122696427',
+        picUrl:
+          'http://p1.music.126.net/DuKyLyYhKd2YhWsRYkd9DQ==/109951172287476927.jpg',
+        topicPerson: 0,
+        trans: ''
+      },
+      {
+        albumSize: 38,
+        alias: ['Jay Chou', '周董'],
+        briefDesc: '',
+        fansCount: 6801508,
+        followed: false,
+        id: 6452,
+        img1v1Id: 109951165793871060,
+        img1v1Id_str: '109951165793871057',
+        img1v1Url:
+          'http://p1.music.126.net/Esjm32Q05PQoX8pF008u7w==/109951165793871057.jpg',
+        musicSize: 525,
+        name: '周杰伦',
+        picId: 109951165793869650,
+        picId_str: '109951165793869641',
+        picUrl:
+          'http://p1.music.126.net/DuKyLyYhKd2YhWsRYkd9DQ==/109951172287476927.jpg',
+        topicPerson: 0,
+        trans: ''
+      }
+    ]
+  }
+  response.send(result)
+})
 app.listen(5000, () => {
   console.log('服务器1启动成功，请求地址：http://localhost:5000/images')
 })

@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const TopRankingItem: FC<IProps> = (props) => {
-  const { data } = props
+  const { data = { coverImgUrl: '', name: '', tracks: [] } } = props
   // const dispatch = useAppDispatch()
   const handlePlayMusic = (id: number) => {
     // dispatch(fetchCurrentSongAction(id))

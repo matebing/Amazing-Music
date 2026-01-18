@@ -44,3 +44,12 @@ export function getPlayListDetail(id: number) {
     headers
   })
 }
+
+//获取入驻歌手
+export function getSettleSingers(limit = 5) {
+  return appRequest.get({
+    url: '/api/artist/list',
+    params: { limit },
+    headers
+  })
+}

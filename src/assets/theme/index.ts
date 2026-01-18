@@ -1,7 +1,7 @@
 const theme = {
   color: {
     primary: '#C20C0C',
-    secondary: ''
+    secondary: '#666666'
   },
   size: {},
   mixin: {

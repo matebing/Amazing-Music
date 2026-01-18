@@ -11,15 +11,15 @@ interface IProps {
 
 const TopRanking: FC<IProps> = (props) => {
   const { rankingData } = useAppSelector((state) => ({
-    rankingData: state.recommend.rankingData
+    rankingData: state.recommend.rankingData || []
   }))
   console.log('测试', rankingData)
   return (
     <TopRankingWrapp>
       <AreaHeader title="榜单" moreLink="/discover/ranking" />
       <div className="content">
-        {rankingData.map((item) => {
-          return <TopRankingItem key={item.id} data={item} />
+        {rankingData.map((item, index) => {
+          return <TopRankingItem key={index} data={item} />
         })}
       </div>
     </TopRankingWrapp>

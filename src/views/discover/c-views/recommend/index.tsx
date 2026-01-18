@@ -5,7 +5,8 @@ import {
   fetchBannerDataAction,
   fetchHotRecommendAction,
   fetchNewestAlbumsAction,
-  fetchRankingDataAction
+  fetchRankingDataAction,
+  fetchSettleSingersAction
 } from './store/recommend'
 import TopBanner from './c-cpns/top-banner'
 import { RecommendWrapper } from './style'
@@ -28,6 +29,7 @@ const Recommend: FC<IProps> = (props) => {
     dispatch(fetchHotRecommendAction())
     dispatch(fetchNewestAlbumsAction())
     dispatch(fetchRankingDataAction())
+    dispatch(fetchSettleSingersAction())
     // dispatch(fetchRecommendDataAction())
   }, [dispatch])
   return (

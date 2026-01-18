@@ -14,7 +14,7 @@ interface IProps {
 
 const SliderBanner: FC<IProps> = (props) => {
   const carouselRef = useRef(null)
-  const { autoPlay = false, dots = false, speed = 500, data } = props
+  const { autoPlay = false, dots = false, speed = 500, data = [] } = props
   function handleClick(direction: string) {
     return () => {
       if (carouselRef.current && direction === 'left') {
